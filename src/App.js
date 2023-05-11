@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import logo from "./logo.svg"
 import "./App.css"
+import JsonEditor from "./JsonEditor"
+import VoiceoverTemplateForm from "./VoiceoverTemplateForm"
+import PageRenderer from "./PageRenderer"
 
 class LambdaDemo extends Component {
   constructor(props) {
@@ -21,12 +24,15 @@ class LambdaDemo extends Component {
     const { loading, msg } = this.state
 
     return (
-      <p>
+      <div>
         <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
         <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
         <br />
         <span>{msg}</span>
-      </p>
+        {/* <JsonEditor /> */}
+        {/* <VoiceoverTemplateForm /> */}
+        <PageRenderer/>
+      </div>
     )
   }
 }
@@ -36,10 +42,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
           <LambdaDemo />
         </header>
       </div>
